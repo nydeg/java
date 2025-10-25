@@ -17,9 +17,12 @@ public interface BookRepository {
             List<String> genres
     );
 
+    void saveToFile();
+    void loadFromFile();
+
     void save(Book book);
     void delete(String title);
 
-    // Book findByName(String name);
+    Book findByTitleAndAuthor(String name, String author);
     List<Book> getAll();
 }

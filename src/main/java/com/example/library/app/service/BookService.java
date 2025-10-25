@@ -6,6 +6,7 @@ import com.example.library.model.Book;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BookService {
     private final BookRepository repository;
@@ -37,11 +38,24 @@ public class BookService {
         }
     }
 
+    public String findBookByTitleAndAuthor(String title, String author) {
+        Book book = repository.findByTitleAndAuthor(title, author);
+        if (book == null) {
+            return "Книга не найдена";
+        }
+        return "Найдена книга: \n" +
+                "Название: " + book.getTitle() + "\n" +
+                "Автор: " + book.getAuthor();
+    }
+
     public String findBooksByAttributes(String title,
                                         String author,
                                         String publisher,
                                         Integer publicationYear,
                                         List<String> genres) {
+
+        // чето потерял архитектуру, у сервиаса не должно быть доступа к моделям
+        // но конкретно в этом проекте думаю не критично
         List<Book> results = repository.findByAttributes(title, author, publisher, publicationYear, genres);
 
         if (results.isEmpty()) {
@@ -62,6 +76,16 @@ public class BookService {
 
         return response.toString().trim();
     }
+
+    public void saveToFile() {
+        repository.saveToFile();
+    }
+
+    public void loadFromFile() {
+        repository.loadFromFile();
+    }
 }
+
+
 
 

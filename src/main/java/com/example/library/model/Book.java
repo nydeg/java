@@ -1,6 +1,8 @@
 package com.example.library.model;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Book {
     private String title;
@@ -12,6 +14,11 @@ public class Book {
     private boolean availability;
     private ArrayList<String> genres;
     static int number = 0;
+
+    public Book() {
+        this.previous_users = new ArrayList<>();
+        this.genres = new ArrayList<>();
+    }
 
     public Book(String title, String author, String publisher, int publication_year, int quantity_of_type,
                 ArrayList<String> previous_users, ArrayList<String> genres) {
@@ -52,5 +59,7 @@ public class Book {
     public void setQuantity_of_type(int quantity_of_type) { this.quantity_of_type = quantity_of_type; }
     public void setPrevious_users(ArrayList<String> previous_users) { this.previous_users = new ArrayList<>(previous_users); }
     public void setAvailability(boolean availability) { this.availability = availability; }
-    public void setGenres(ArrayList<String> genres) { this.genres = new ArrayList<>(genres); }
+    public void setGenres(List<String> genres) { this.genres = new ArrayList<>(genres); }
 }
+
+

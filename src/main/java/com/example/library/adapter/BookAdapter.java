@@ -163,15 +163,25 @@ public class BookAdapter {
     }
 
     private void findBookByTitleAndAuthor() {
+        String title = "smth";
+        String author = "smth";
 
+        System.out.println("Введите название книги для поиска: ");
+        title = scanner.nextLine();
+
+        System.out.println("Введите автора: ");
+        author = scanner.nextLine();
+
+        String answer = service.findBookByTitleAndAuthor(title, author);
+        System.out.println(answer);
     }
 
     private void saveToFile() {
-
+        service.saveToFile();
     }
 
     private void loadFromFile() {
-
+        service.loadFromFile();
     }
 
     private void findByAttributes() {
