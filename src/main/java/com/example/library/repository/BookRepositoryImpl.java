@@ -13,7 +13,7 @@ import java.util.Arrays;
 
 public class BookRepositoryImpl implements BookRepository {
     private final List<Book> books = new ArrayList<>();
-    private static final String FILE_NAME = "src/main/java/com/example/library/util/library_books.txt";
+    private static final String FILE_NAME = "library_books.txt";
 
     @Override
     public void save(Book book) { // метод для сохранения книги со всеми атрибутами
