@@ -11,6 +11,7 @@ public class Book {
     private ArrayList<String> previous_users;
     private boolean availability;
     private ArrayList<String> genres;
+    static int number = 0;
 
     public Book(String title, String author, String publisher, int publication_year, int quantity_of_type,
                 ArrayList<String> previous_users, ArrayList<String> genres) {
@@ -24,8 +25,14 @@ public class Book {
         this.genres = genres;
     }
 
-    public Book(String title) {
+    public Book(String title, String author) {
+        this.quantity_of_type = 1;
         this.title = title;
+        this.author = author;
+        this.publisher = "";
+        this.publication_year = 0;
+        this.previous_users = new ArrayList<>();
+        this.genres = new ArrayList<>();
     }
 
     public String getTitle() { return title; }
@@ -36,6 +43,7 @@ public class Book {
     public ArrayList<String> getPrevious_users() { return previous_users; }
     public boolean getAvailability() { return availability; }
     public ArrayList<String> getGenres() { return genres; }
+    public static int getNumber() {return number; }
 
     public void setTitle(String title) { this.title = title; }
     public void setAuthor(String author) { this.author = author; }
@@ -45,5 +53,4 @@ public class Book {
     public void setPrevious_users(ArrayList<String> previous_users) { this.previous_users = new ArrayList<>(previous_users); }
     public void setAvailability(boolean availability) { this.availability = availability; }
     public void setGenres(ArrayList<String> genres) { this.genres = new ArrayList<>(genres); }
-
 }
